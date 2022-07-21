@@ -15,7 +15,7 @@ function Task(description) {
 createTemplate = (task, index) => {
     return `
     <div class="todo__li ${task.completed ? 'checked' : ''}" >
-        <input id="${index}"  onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed ? 'checked' : ''}>
+        <input id="${index}"  onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed} ? 'checked' : ''>
         <div class="description"><label for="${index}">${task.description}</label></div>
         <button onclick="deleteTask(${index})" class="btn-delete"></button>
     </div>
@@ -43,9 +43,9 @@ const completeTask = index => {
     console.log(index);
     tasks[index].completed = !tasks[index].completed;
     if(tasks[index].completed) {
-        todoItemElems[index].classList.add("checked");  
+        todoItemElems[index].classList.add('checked');  
     } else {
-        todoItemElems[index].classList.remove("checked");
+        todoItemElems[index].classList.remove('checked');
     }
     updateLocal();
     fillHtmlList();
