@@ -15,7 +15,7 @@ function Task(description) {
 createTemplate = (task, index) => {
     return `
     <div class="todo__li ${task.completed ? 'checked' : ''}" >
-        <input id="${index}"  onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed} ? 'checked' : ''>
+        <input id="${index}"  onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed ? 'checked' : ''}>
         <div class="description"><label for="${index}">${task.description}</label></div>
         <button onclick="deleteTask(${index})" class="btn-delete"></button>
     </div>
@@ -29,7 +29,7 @@ const fillHtmlList = () => {
         tasks.forEach((item, index) => {
             todosWrapper.innerHTML += createTemplate(item, index);
         });
-        todoItemElems = document.querySelectorAll('.todo__text');
+        todoItemElems = document.querySelectorAll('.todo__li');
     }
 };
 
