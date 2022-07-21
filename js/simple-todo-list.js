@@ -14,11 +14,11 @@ function Task(description) {
 
 createTemplate = (task, index) => {
     return `
-    <div class="todo__li ${task.completed ? 'checked' : ''}" >
+    <label for="${index}"><div class="todo__li ${task.completed ? 'checked' : ''}" >
         <input id="${index}"  onclick="completeTask(${index})" class="btn-complete" type="checkbox" ${task.completed ? 'checked' : ''}>
-        <div class="description"><label for="${index}">${task.description}</label></div>
+        <div class="description">${task.description}</div>
         <button onclick="deleteTask(${index})" class="btn-delete"></button>
-    </div>
+    </div></label>
     `
 }
 
