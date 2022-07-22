@@ -22,10 +22,18 @@ createTemplate = (task, index) => {
     `
 }
 
+const filterTasks = () => {
+    const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
+    const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
+    tasks = [...activeTasks,...completedTasks];
+}
+
+
 
 const fillHtmlList = () => {
     todosWrapper.innerHTML = "";
     if(tasks.length > 0) {
+        filterTasks();
         tasks.forEach((item, index) => {
             todosWrapper.innerHTML += createTemplate(item, index);
         });
@@ -59,7 +67,10 @@ addTaskBtn.addEventListener('click', () => {
 });
 
 const deleteTask = index => {
+    todoItemElems[index].classList.add('delition')
+    setTimeout(() => {
         tasks.splice(index, 1);
         updateLocal();
         fillHtmlList();
+    }, 500);    
 };

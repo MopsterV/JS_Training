@@ -196,6 +196,7 @@ background-repeat: no-repeat;
 }
 
 .todo__items .delition {
+  background-color: #e57373;
   animation: opacity 1s ease-in-out;
 }
 
